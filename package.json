@@ -1,0 +1,12 @@
+{
+  "name": "zdebug.js",
+  "version": "0.1.0",
+  "description": "移动端调试工具",
+  "main": "index.js",
+  "keywords": [
+    "debug",
+    "mobile"
+  ],
+  "author": "zxl20070701",
+  "license": "MIT"
+}
