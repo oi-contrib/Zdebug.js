@@ -4,3 +4,7 @@
 .github
 .gitignore
 index.html
+node_modules
+build
+src
+package-lock.json

@@ -1,12 +1,32 @@
 {
   "name": "zdebug.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "移动端调试工具",
-  "main": "index.js",
+  "main": "dist/Zdebug.js",
+  "scripts": {
+    "start": "npm install && npm run dev",
+    "server": "devby",
+    "dev": "rollup --config ./build/rollup.config.js -w",
+    "build": "rollup --config ./build/rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fragement-contrib/Zdebug.js.git"
+  },
+  "author": {
+    "name": "zxl20070701",
+    "url": "https://zxl20070701.github.io/notebook/home.html"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fragement-contrib/Zdebug.js/issues"
+  },
   "keywords": [
     "debug",
     "mobile"
   ],
-  "author": "zxl20070701",
-  "license": "MIT"
+  "devDependencies": {
+    "devby": "^0.5.1",
+    "rollup": "^4.6.1"
+  }
 }

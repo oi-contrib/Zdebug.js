@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zdebug.js：移动端调试工具</title>
-    <script src="./index.js"></script>
+    <!-- <script src="../dist/Zdebug.js"></script> -->
+    <script src="https://unpkg.com/zdebug.js"></script>
     <style>
         ul,
         li {
@@ -42,6 +43,7 @@
             text-align: center;
             display: block;
             margin: 20px 0;
+            color: #00aece;
         }
 
         h2 {
@@ -62,11 +64,16 @@
 <body>
 
     <script>
-        Zdebug();
+        Zdebug({
+            zIndex: 9,
+            // error:false
+        });
     </script>
 
     <h2>
-        Zdebug.js
+        <a href="https://github.com/fragement-contrib/Zdebug.js" target="_blank">
+            Zdebug.js
+        </a>
     </h2>
     <p>
         移动端调试工具
