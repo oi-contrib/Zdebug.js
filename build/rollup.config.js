@@ -1,4 +1,5 @@
-const pkg = require("../package.json");
+const pkg = require("../package.json")
+const { toBase64, simpleScss } = require("devby")
 
 module.exports = {
     input: "./src/index.js",
@@ -8,7 +9,7 @@ module.exports = {
         format: "umd",
         banner: `/*!
  * Zdebug.js v${pkg.version}
- * git+https://github.com/fragement-contrib/Zdebug.js.git
+ * git+https://github.com/zxl20070701/Zdebug.js.git
  *
  * Copyright zxl20070701
  * Released under the MIT license
@@ -20,11 +21,15 @@ module.exports = {
             return {
                 transform(source, path) {
                     if (/\.scss$/.test(path)) {
-                        return require('./scss-loader.js')(source)
+                        return `export default ${JSON.stringify(simpleScss(source))}`
                     }
 
                     else if (/\.html$/.test(path)) {
                         return `export default ${JSON.stringify(source)}`
+                    }
+
+                    else if (/\.png$/.test(path)) {
+                        return `export default ${JSON.stringify(toBase64(path))}`
                     }
 
                     return

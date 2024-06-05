@@ -12,3 +12,8 @@ v0.2.0:
       - 功能新增
         1、添加初始化配置
           (zIndex、log、info、debug、warn、error、trace)
+v0.3.0:
+    date:2024-06-05
+    changes:
+      - 新增功能
+        1、新增types文件，以支持typescript开发

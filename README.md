@@ -1,5 +1,5 @@
 # Zdebug.js
-移动端调试工具
+移动端调试工具，支持typescript开发
 
 <p>
     <a href="https://zxl20070701.github.io/toolbox/#/npm-download?packages=zdebug.js&interval=7">
@@ -8,10 +8,12 @@
     <a href="https://www.npmjs.com/package/zdebug.js">
         <img src="https://img.shields.io/npm/v/zdebug.js.svg" alt="Version">
     </a>
-    <a href="https://github.com/fragement-contrib/Zdebug.js" target='_blank'>
-        <img alt="GitHub repo stars" src="https://img.shields.io/github/stars/fragement-contrib/Zdebug.js?style=social">
+    <a href="https://github.com/zxl20070701/Zdebug.js" target='_blank'>
+        <img alt="GitHub repo stars" src="https://img.shields.io/github/stars/zxl20070701/Zdebug.js?style=social">
     </a>
 </p>
+
+<img src="https://nodei.co/npm/zdebug.js.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM">
 
 ## 如何使用？
 

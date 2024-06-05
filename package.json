@@ -1,17 +1,17 @@
 {
   "name": "zdebug.js",
-  "version": "0.2.0",
-  "description": "移动端调试工具",
-  "main": "dist/Zdebug.js",
+  "version": "0.3.0",
+  "description": "移动端调试工具，支持typescript开发",
+  "main": "dist/Zdebug.min.js",
+  "typings": "./types/index.d.ts",
   "scripts": {
     "start": "npm install && npm run dev",
-    "server": "devby",
-    "dev": "rollup --config ./build/rollup.config.js -w",
-    "build": "rollup --config ./build/rollup.config.js"
+    "dev": "devby --run \"rollup --config ./build/rollup.config.js -w\" \"devby -s 20000\"",
+    "build": "rollup --config ./build/rollup.config.js && terser ./dist/Zdebug.js --compress --mangle --output ./dist/Zdebug.min.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fragement-contrib/Zdebug.js.git"
+    "url": "git+https://github.com/oi-contrib/Zdebug.js.git"
   },
   "author": {
     "name": "zxl20070701",
@@ -19,14 +19,15 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fragement-contrib/Zdebug.js/issues"
+    "url": "https://github.com/oi-contrib/Zdebug.js/issues"
   },
   "keywords": [
     "debug",
     "mobile"
   ],
   "devDependencies": {
-    "devby": "^0.5.1",
-    "rollup": "^4.6.1"
+    "devby": "^0.7.0-alpha.2",
+    "rollup": "^4.6.1",
+    "terser": "^5.17.1"
   }
 }
