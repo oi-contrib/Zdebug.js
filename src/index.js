@@ -1,20 +1,10 @@
-import indexStyle from './index.scss';
-import indexTemplate from './index.html';
+import commonStyle from './common.scss';
+import bootstrap from './bootstrap.js'
 
-import consoleStyle from './Console/index.scss';
-import runConsole from './Console/index.js';
-
-import logo from './logo.png';
 
 export default function (options) {
     var _options = {
-        zIndex: 9999999,
-        log: true,
-        info: true,
-        debug: true,
-        warn: true,
-        error: true,
-        trace: true
+        zIndex: 9999999
     };
 
     if (options) {
@@ -37,58 +27,14 @@ export default function (options) {
 
     // ifrmae中写入html模板
     iframeDocument.open();
-    iframeDocument.write(indexTemplate);
+    iframeDocument.write("<div id='root'></div>");
     iframeDocument.close();
 
     var styleEl = document.createElement("style");
     iframeDocument.documentElement.getElementsByTagName("head")[0].appendChild(styleEl);
-    styleEl.innerText = indexStyle + consoleStyle;
+    styleEl.innerText = commonStyle;
 
-    var btnEl = iframeDocument.getElementById("btn");
-    var viewEl = iframeDocument.getElementById("view");
-    var closeEl = iframeDocument.getElementById("close");
-
-
-    var fullStyle = "position:fixed;width:100vw;height:100vh;left:0;top:0;";
-    btnEl.style = fullStyle +
-        "background-image:url(" + logo + ");" +
-        "background-size: 100% auto;" +
-        "background-repeat: no-repeat;" +
-        "background-position: center center;";
-    viewEl.style = fullStyle +
-        "background-color:rgb(0 0 0 / 43%);";
-
-    var toggleView = function (isView) {
-        if (isView) {
-            btnEl.style.display = "none";
-            viewEl.style.display = "";
-
-            iframe.style.right = '0';
-            iframe.style.top = '0';
-            iframe.style.width = '100vw';
-            iframe.style.height = '100vh';
-
-        } else {
-            btnEl.style.display = "";
-            viewEl.style.display = "none";
-
-            iframe.style.right = '20px';
-            iframe.style.top = '100px';
-            iframe.style.width = '50px';
-            iframe.style.height = '50px';
-        }
-    };
-    toggleView(false);
-
-    btnEl.addEventListener("click", function () {
-        toggleView(true);
-    });
-
-    closeEl.addEventListener("click", function () {
-        toggleView(false);
-    });
-
-    // Console
-    runConsole(_options, iframeDocument);
-
+    window.zdebugiframe = iframe;
+    window.zdebugiframeDocument = iframeDocument;
+    bootstrap(iframeDocument.getElementById("root"));
 };

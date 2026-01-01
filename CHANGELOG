@@ -9,11 +9,15 @@ v0.2.0:
     changes:
       - 优化改造
         1、改完非全屏模式以兼容全屏模式
-      - 功能新增
-        1、添加初始化配置
-          (zIndex、log、info、debug、warn、error、trace)
+      - 新增功能
+        1、添加zIndex配置
 v0.3.0:
     date:2024-06-05
     changes:
       - 新增功能
         1、新增types文件，以支持typescript开发
+v0.4.0:
+    date:
+    changes:
+      - 优化改造 
+        1、使用 Zipaper框架（ https://github.com/oi-contrib/Zipaper ） 开发，提高可维护性

@@ -52,15 +52,7 @@ Zdebug()
 Zdebug({
 
     // 可选，表示工具的css属性z-index，默认9999999
-    zIndex: number,
-
-    // 可选，设置是否捕获相关日志级别，默认全部true
-    log: boolean,
-    info: boolean,
-    debug: boolean,
-    warn: boolean,
-    error: boolean,
-    trace: boolean,
+    zIndex: number
 })
 ```
 

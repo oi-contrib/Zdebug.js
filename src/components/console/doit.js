@@ -1,6 +1,6 @@
-import { isString, isFunction, isNumber, isBoolean, toString } from '../tools/type.js'
+import { isString, isFunction, isNumber, isBoolean, toString } from '../../tools/type.js'
 
-export default function (_options, iframeDocument) {
+export default function (iframeDocument) {
     var consoleEl = iframeDocument.getElementById("console");
     var console = window.console;
 
@@ -115,79 +115,72 @@ export default function (_options, iframeDocument) {
         }
     };
 
-    if (_options.log)
-        console.log = function () {
-            log.apply(this, arguments);
-            appendConsole({
-                type: "log",
-                content: arguments
-            });
-        };
+    console.log = function () {
+        log.apply(this, arguments);
+        appendConsole({
+            type: "log",
+            content: arguments
+        });
+    };
 
-    if (_options.info)
-        console.info = function () {
-            info.apply(this, arguments);
-            appendConsole({
-                type: "info",
-                content: arguments
-            });
-        };
+    console.info = function () {
+        info.apply(this, arguments);
+        appendConsole({
+            type: "info",
+            content: arguments
+        });
+    };
 
-    if (_options.debug)
-        console.debug = function () {
-            debug.apply(this, arguments);
-            appendConsole({
-                type: "debug",
-                content: arguments
-            });
-        };
+    console.debug = function () {
+        debug.apply(this, arguments);
+        appendConsole({
+            type: "debug",
+            content: arguments
+        });
+    };
 
-    if (_options.warn)
-        console.warn = function () {
-            warn.apply(this, arguments);
-            appendConsole({
-                type: "warn",
-                content: arguments
-            });
-        };
+    console.warn = function () {
+        warn.apply(this, arguments);
+        appendConsole({
+            type: "warn",
+            content: arguments
+        });
+    };
 
-    if (_options.error)
-        console.error = function () {
-            error.apply(this, arguments);
+    console.error = function () {
+        error.apply(this, arguments);
+        appendConsole({
+            type: "error",
+            content: arguments
+        });
+    };
+
+    console.trace = function () {
+        trace.apply(this, arguments);
+        appendConsole({
+            type: "trace",
+            content: arguments
+        });
+    };
+
+    if ('addEventListener' in window) {
+
+        // 监听Promise相关错误
+        window.addEventListener('unhandledrejection', function (event) {
+            var content = event.reason.stack;
             appendConsole({
                 type: "error",
-                content: arguments
+                content: [content]
             });
-        };
+        });
 
-    if (_options.trace)
-        console.trace = function () {
-            trace.apply(this, arguments);
+        // throw new error的捕获
+        window.addEventListener('error', function (event) {
+            var content = event.message + " " + event.filename + " " + event.lineno + " \nstack :\n" + (event.error ? event.error.stack : "");
             appendConsole({
-                type: "trace",
-                content: arguments
+                type: "error",
+                content: [content]
             });
-        };
-
-    if (_options.error)
-        if ('addEventListener' in window) {
-
-            // 监听Promise相关错误
-            window.addEventListener('unhandledrejection', function (event) {
-                var content = event.reason.stack;
-                appendConsole({
-                    type: "error",
-                    content: [content]
-                });
-            });
-
-            // throw new error的捕获
-            window.addEventListener('error', function (event) {
-                var content = event.message + " " + event.filename + " " + event.lineno + " \nstack :\n" + (event.error ? event.error.stack : "");
-                appendConsole({
-                    type: "error",
-                    content: [content]
-                });
-            });
-        }
+        });
+    }
 };

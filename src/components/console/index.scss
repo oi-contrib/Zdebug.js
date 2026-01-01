@@ -1,9 +1,4 @@
 ul#console {
-    height: calc(80vh - 64px);
-    overflow: auto;
-    font-size: 12px;
-    font-weight: 200;
-    background-color: white;
 
     &>li {
         border-bottom: 1px solid #e2e1e1;

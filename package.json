@@ -1,12 +1,12 @@
 {
   "name": "zdebug.js",
-  "version": "0.3.0",
+  "version": "0.4.0-alpha.0",
   "description": "移动端调试工具，支持typescript开发",
   "main": "dist/Zdebug.min.js",
   "typings": "./types/index.d.ts",
   "scripts": {
     "start": "npm install && npm run dev",
-    "dev": "devby --run \"rollup --config ./build/rollup.config.js -w\" \"devby -s 20000\"",
+    "dev": "rollup --config ./build/rollup.config.js -w",
     "build": "rollup --config ./build/rollup.config.js && terser ./dist/Zdebug.js --compress --mangle --output ./dist/Zdebug.min.js"
   },
   "repository": {
@@ -26,8 +26,11 @@
     "mobile"
   ],
   "devDependencies": {
-    "devby": "^0.7.0-alpha.2",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "rollup": "^4.6.1",
-    "terser": "^5.17.1"
+    "terser": "^5.17.1",
+    "xhtml-to-json": "^0.1.0",
+    "zipaper": "^0.2.0"
   }
 }

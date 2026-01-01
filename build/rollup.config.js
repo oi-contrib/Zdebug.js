@@ -1,5 +1,13 @@
+const fs = require("fs")
 const pkg = require("../package.json")
-const { toBase64, simpleScss } = require("devby")
+const simpleScss = require("./simpleScss.js")
+const { parseTemplate } = require("xhtml-to-json")
+const pluginNodeResolve = require("@rollup/plugin-node-resolve")
+const pluginCommonjs = require("@rollup/plugin-commonjs")
+
+function toBase64(filepath) {
+    return "data:image/png;base64," + fs.readFileSync(filepath).toString('base64')
+}
 
 module.exports = {
     input: "./src/index.js",
@@ -9,14 +17,12 @@ module.exports = {
         format: "umd",
         banner: `/*!
  * Zdebug.js v${pkg.version}
- * git+https://github.com/zxl20070701/Zdebug.js.git
- *
- * Copyright zxl20070701
- * Released under the MIT license
- * https://zxl20070701.github.io/notebook/home.html
+ * git+https://github.com/oi-contrib/Zdebug.js.git
  */`
     },
     plugins: [
+        pluginCommonjs(),
+        pluginNodeResolve(),
         (function () {
             return {
                 transform(source, path) {
@@ -25,7 +31,7 @@ module.exports = {
                     }
 
                     else if (/\.html$/.test(path)) {
-                        return `export default ${JSON.stringify(source)}`
+                        return `export default ${JSON.stringify(parseTemplate(source).toJson())}`
                     }
 
                     else if (/\.png$/.test(path)) {

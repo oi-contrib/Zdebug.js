@@ -1,0 +1,50 @@
+#view {
+    &>header {
+        text-align: center;
+        line-height: 40px;
+        font-weight: 800;
+        background-color: #fbfbfb;
+        margin-top: 20vh;
+        box-shadow: 0px -10px 15px 0px #3433339e;
+
+        #close {
+            position: absolute;
+            right: 10px;
+            top: calc(20vh + 10px);
+            font-size: 12px;
+            background-color: #F44336;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            line-height: 1em;
+        }
+    }
+
+    .nav {
+        background-color: #e6e6e6;
+        color: #424648;
+        padding: 0 10px;
+
+        &>li {
+            display: inline-block;
+            line-height: 24px;
+            padding: 0 10px;
+            cursor: pointer;
+            font-size: 12px;
+
+            &[active='yes'] {
+                color: #2196F3;
+                font-weight: 800;
+                border-bottom: 2px solid #2196F3;
+            }
+        }
+    }
+
+    .content {
+        height: calc(80vh - 64px);
+        overflow: auto;
+        font-size: 12px;
+        font-weight: 200;
+        background-color: white;
+    }
+}
