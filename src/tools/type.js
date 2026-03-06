@@ -56,21 +56,65 @@ export var isBoolean = function (value) {
 };
 
 export var toString = function (val) {
+    // 处理基本类型
+    if (val === null) return 'null';
+    if (val === undefined) return 'undefined';
+    if (typeof val === 'string') return '"' + val + '"';
+    if (typeof val === 'number' || typeof val === 'boolean' || typeof val === 'function') {
+        return String(val);
+    }
+    
+    // 处理数组
     if (Array.isArray(val)) {
+        if (val.length === 0) return '[]';
+        
         var resultData = "[";
-        for (var key in val) {
-            resultData += val[key] + ',';
+        for (var i = 0; i < Math.min(val.length, 10); i++) { // 限制数组长度，避免过长
+            if (i > 0) resultData += ', ';
+            if (typeof val[i] === 'string') {
+                resultData += '"' + val[i] + '"';
+            } else if (typeof val[i] === 'object' && val[i] !== null) {
+                resultData += '{...}'; // 简化对象显示
+            } else {
+                resultData += String(val[i]);
+            }
         }
-        return resultData.replace(/\,$/, ']');
+        if (val.length > 10) resultData += ', ...'; // 表示还有更多元素
+        return resultData + ']';
     }
 
+    // 处理对象
     if (isPlainObject(val)) {
+        var keys = Object.keys(val);
+        if (keys.length === 0) return '{}';
+        
         var resultData = "{";
+        var count = 0;
         for (var key in val) {
-            resultData += key + ":" + val[key] + ",";
+            if (count >= 5) { // 限制属性数量，避免过长
+                resultData += ', ...'; // 表示还有更多属性
+                break;
+            }
+            if (count > 0) resultData += ', ';
+            resultData += key + ": ";
+            
+            var value = val[key];
+            if (typeof value === 'string') {
+                resultData += '"' + value + '"';
+            } else if (typeof value === 'object' && value !== null) {
+                resultData += '{...}'; // 简化嵌套对象显示
+            } else {
+                resultData += String(value);
+            }
+            count++;
         }
-        return resultData.replace(/\,$/, '}');
+        return resultData + '}';
     }
 
-    return val;
+    // 处理其他类型
+    try {
+        return String(val);
+    } catch (e) {
+        return '[object Object]';
+    }
 };

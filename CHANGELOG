@@ -19,5 +19,11 @@ v0.3.0:
 v0.4.0:
     date:
     changes:
-      - 优化改造 
+      - 优化改造
         1、使用 Zipaper框架（ https://github.com/oi-contrib/Zipaper ） 开发，提高可维护性
+        2、优化整体UI设计，使其更美观和用户友好
+      - 新增功能
+        1、控制台console
+          * 捕获更多打印方式
+          * 支持运行代码
+          * 支持过滤、清空等

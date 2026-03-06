@@ -9,11 +9,14 @@ export default defineElement({
     template,
     data() {
         return {
-
+            // 由于只有一个控制台标签，不需要activeTab属性
         }
     },
+    methods: {
+        // 由于只有一个控制台标签，不需要切换标签的功能
+    },
     created() {
-        setTimeout(function () {
+        setTimeout(() => {
             loadStyle(style);
 
             var btnEl = window.zdebugiframeDocument.getElementById("btn");
@@ -59,9 +62,8 @@ export default defineElement({
                 toggleView(false);
             });
 
-        })
-    },
-    methods: {
+            // 由于只有一个控制台标签，不需要绑定标签切换事件
 
+        });
     }
 })

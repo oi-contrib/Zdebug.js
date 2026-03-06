@@ -1,5 +1,72 @@
-<ul id='console'>
-    <li class='blank'>
-        无打印信息～
-    </li>
-</ul>
+<div class="console-container">
+    <div class="console-header">
+        <div class="console-title">控制台</div>
+        <div class="console-actions">
+            <button class="console-btn" id="toggle-filter-bar" title="切换筛选面板">
+               切换
+            </button>
+        </div>
+    </div>
+    <div class="console-filter-bar" id="filter-bar" style="display: none;">
+        <div class="filter-section">
+            <div class="filter-title">筛选日志类型:</div>
+            <label class="filter-option">
+                <input type="checkbox" checked value="log"> 日志
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="info"> 信息
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="warn"> 警告
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="error"> 错误
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="debug"> 调试
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="trace"> 追踪
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="table"> 表格
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="time"> 计时
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="count"> 计数
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="assert"> 断言
+            </label>
+        </div>
+        
+        <div class="delete-section">
+            <div class="filter-title">操作:</div>
+            <button class="delete-btn" id="delete-selected-types" title="删除选中类型的日志">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"/>
+                </svg>
+                删除选中类型
+            </button>
+            <button class="delete-btn" id="delete-all-logs" title="清空所有日志">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"/>
+                </svg>
+                清空全部
+            </button>
+        </div>
+    </div>
+    <ul id='console'>
+        <li class='blank'>
+            <div class="empty-icon">📝</div>
+            <div class="empty-text">控制台暂无输出信息</div>
+            <div class="empty-tip">使用 console.log()、console.info() 等方法查看输出</div>
+        </li>
+    </ul>
+    <div class="console-code-executor">
+        <textarea id="code-input" placeholder="在此输入JavaScript代码，按Ctrl+Enter或点击运行按钮执行..."></textarea>
+        <button id="execute-code" class="execute-btn">运行代码</button>
+    </div>
+</div>
