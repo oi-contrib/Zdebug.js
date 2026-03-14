@@ -1,6 +1,6 @@
 {
   "name": "zdebug.js",
-  "version": "0.4.0-alpha.0",
+  "version": "0.4.0",
   "description": "移动端调试工具，支持typescript开发",
   "main": "dist/Zdebug.min.js",
   "typings": "./types/index.d.ts",
@@ -30,7 +30,7 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "rollup": "^4.6.1",
     "terser": "^5.17.1",
-    "xhtml-to-json": "^0.1.0",
-    "zipaper": "^0.2.0"
+    "xhtml-to-json": "^0.2.1",
+    "zipaper": "^0.2.1"
   }
 }

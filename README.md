@@ -42,6 +42,19 @@ Zdebug()
 Zdebug()
 ```
 
+<table>
+    <!-- <thead>
+        <tr>
+            <td>Console</td>
+        </tr>
+    </thead> -->
+    <tbody>
+        <tr>
+            <td><img src="./snipping/console.png" /></td>
+        </tr>
+    </tbody>
+</table>
+
 ### 配置项
 
 > v0.2.0 新增

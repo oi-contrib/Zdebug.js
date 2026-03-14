@@ -17,7 +17,7 @@ v0.3.0:
       - 新增功能
         1、新增types文件，以支持typescript开发
 v0.4.0:
-    date:
+    date:2026-03-14
     changes:
       - 优化改造
         1、使用 Zipaper框架（ https://github.com/oi-contrib/Zipaper ） 开发，提高可维护性
