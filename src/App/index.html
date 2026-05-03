@@ -11,6 +11,9 @@
         <li z-bind:active='activeTab==="network"?"yes":"no"' z-on:click='changeTab("network")'>
             Network
         </li>
+        <li z-bind:active='activeTab==="memory"?"yes":"no"' z-on:click='changeTab("memory")'>
+            Memory
+        </li>
     </ul>
     <div class="content">
         <div class="tab-content" data-tab="console" z-show='activeTab==="console"'>
@@ -18,6 +21,9 @@
         </div>
         <div class="tab-content" data-tab="network" z-show='activeTab==="network"'>
             <ui-network></ui-network>
+        </div>
+        <div class="tab-content" data-tab="memory" z-show='activeTab==="memory"'>
+            <ui-memory></ui-memory>
         </div>
     </div>
 </div>

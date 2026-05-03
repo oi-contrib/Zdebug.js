@@ -42,9 +42,9 @@ Zdebug()
 Zdebug()
 ```
 
-|  Console   | Network  |
-|  ----  | ----  |
-| <img width="200px" src="./snipping/console.png" />  | <img width="200px" src="./snipping/network.png" /> |
+|  Console   | Network  |  Memory   |
+|  ----  | ----  |  ----  |
+| <img width="200px" src="./snipping/console.png" />  | <img width="200px" src="./snipping/network.png" /> | <img width="200px" src="./snipping/memory.png" />  |
 
 ### 配置项
 

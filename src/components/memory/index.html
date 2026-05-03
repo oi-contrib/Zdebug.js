@@ -1,0 +1,56 @@
+<div class="memory-container">
+    <div class="memory-header">
+        <div class="memory-title">内存监控</div>
+        <div class="memory-actions">
+            <button class="memory-btn" id="clear-memory" title="清空内存记录">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"/>
+                </svg>
+                清空
+            </button>
+            <button class="memory-btn" id="filter-memory" title="切换筛选面板">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/>
+                </svg>
+                筛选
+            </button>
+        </div>
+    </div>
+    <div class="memory-filter-bar" id="memory-filter-bar" style="display: none;">
+        <div class="filter-section">
+            <div class="filter-title">筛选记录类型:</div>
+            <label class="filter-option">
+                <input type="checkbox" checked value="usage"> 内存使用
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="performance"> 性能指标
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="alert"> 内存警告
+            </label>
+        </div>
+        
+        <div class="delete-section">
+            <div class="filter-title">操作:</div>
+            <button class="delete-btn" id="memory-delete-selected-types" title="删除选中类型的记录">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"/>
+                </svg>
+                删除选中类型
+            </button>
+            <button class="delete-btn" id="memory-delete-all-logs" title="清空所有记录">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6h14z"/>
+                </svg>
+                清空全部
+            </button>
+        </div>
+    </div>
+    <div id='memory-container'>
+        <div class='blank'>
+            <div class="empty-icon">🧠</div>
+            <div class="empty-text">暂无内存监控记录</div>
+            <div class="empty-tip">内存监控将在此显示浏览器内存使用情况</div>
+        </div>
+    </div>
+</div>
