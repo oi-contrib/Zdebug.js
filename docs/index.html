@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zdebug.js：移动端调试工具</title>
-    <!-- <script src="../dist/Zdebug.js"></script> -->
-    <script src="https://unpkg.com/zdebug.js"></script>
+    <script>
+        var host = window.location.host;
+        window.needCache = !(/^127\.0\.0\.1/.test(host) || /^localhost/.test(host) || host == "");
+    </script>
     <style>
         * {
             margin: 0;
@@ -164,12 +166,12 @@
             margin-right: 10px;
         }
 
-        .console .card-icon {
+        .section .card-icon {
             background: linear-gradient(135deg, #28a745, #20c997);
             color: white;
         }
 
-        .console .card-title {
+        .section .card-title {
             color: #155724;
         }
 
@@ -227,9 +229,17 @@
 
 <body>
     <script>
-        Zdebug({
-            zIndex: 9
-        });
+
+        let scriptEl = document.createElement("script");
+        scriptEl.setAttribute("src", window.needCache ? "https://cdn.jsdelivr.net/npm/zdebug.js" : "../dist/Zdebug.js");
+
+        document.getElementsByTagName("head")[0].appendChild(scriptEl);
+
+        scriptEl.addEventListener('load', function () {
+            Zdebug({
+                zIndex: 9
+            });
+        }, false);
     </script>
 
     <div class="container">
@@ -242,8 +252,7 @@
             </a>
         </header>
 
-        <!-- Console Section -->
-        <section class="section console">
+        <section class="section">
             <h2 class="section-title">
                 <i class="fas fa-terminal"></i>
                 Console 日志测试
@@ -366,6 +375,40 @@
                 </div>
             </div>
         </section>
+
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-terminal"></i>
+                Network 网络请求
+            </h2>
+            <div class="card-root">
+                <div class="card" onclick='doSend("get","../.mailmap")'>
+                    <div class="card-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="card-title">[地址存在]点击发送get请求</h3>
+                </div>
+                <div class="card" onclick='doSend("get","../.mailmap2")'>
+                    <div class="card-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="card-title">[地址不存在]点击发送get请求</h3>
+                </div>
+                <div class="card" onclick='doSend("post","../.mailmap")'>
+                    <div class="card-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="card-title">点击发送post请求</h3>
+                </div>
+                <div class="card" onclick='doSend("get","https:\/\/github.com/zxl20070701")'>
+                    <div class="card-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="card-title">[网络的]点击发送get请求</h3>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <script>
@@ -380,6 +423,27 @@
                 .then(function (data) {
                     throw new Error('一个错误:' + data);
                 });
+
+        }
+
+        function doSend(methodName, url) {
+            //创建xhr对象
+            let xhr;
+            // if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+            // } else {
+            //   xhr = new ActiveXObject('Microsoft.XMLHTTP');
+            // }
+
+            xhr.onreadystatechange = function () {
+                // console.log("network:", xhr);
+            };
+
+            //发送请求
+            xhr.open(methodName, url, false);
+            xhr.send(`{
+    "key": "value"
+}`);
 
         }
     </script>

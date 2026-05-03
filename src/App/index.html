@@ -5,13 +5,19 @@
         <span id='close'>关闭</span>
     </header>
     <ul class='nav'>
-        <li active='yes' data-tab="console">
+        <li z-bind:active='activeTab==="console"?"yes":"no"' z-on:click='changeTab("console")'>
             Console
+        </li>
+        <li z-bind:active='activeTab==="network"?"yes":"no"' z-on:click='changeTab("network")'>
+            Network
         </li>
     </ul>
     <div class="content">
-        <div class="tab-content" data-tab="console" style="display: block;">
+        <div class="tab-content" data-tab="console" z-show='activeTab==="console"'>
             <ui-console></ui-console>
+        </div>
+        <div class="tab-content" data-tab="network" z-show='activeTab==="network"'>
+            <ui-network></ui-network>
         </div>
     </div>
 </div>

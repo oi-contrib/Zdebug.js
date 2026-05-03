@@ -1,0 +1,38 @@
+<div class="network-container">
+    <div class="network-header">
+        <div class="network-title">网络请求</div>
+        <div class="network-actions">
+            <button class="network-btn" id="toggle-network-filter-bar" title="切换筛选面板">
+                切换
+            </button>
+        </div>
+    </div>
+    <div class="network-filter-bar" id="network-filter-bar" style="display: none;">
+        <div class="filter-section">
+            <div class="filter-title">筛选请求类型:</div>
+            <label class="filter-option">
+                <input type="checkbox" checked value="xhr"> XHR
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="fetch"> Fetch
+            </label>
+        </div>
+        
+        <div class="delete-section">
+            <div class="filter-title">操作:</div>
+            <button class="delete-btn" id="network-delete-selected-types" title="删除选中类型的请求">
+                删除选中类型
+            </button>
+            <button class="delete-btn" id="network-delete-all-logs" title="清空所有请求记录">
+                清空全部
+            </button>
+        </div>
+    </div>
+    <div id='network-container'>
+        <div class='blank'>
+            <div class="empty-icon">🌐</div>
+            <div class="empty-text">暂无网络请求记录</div>
+            <div class="empty-tip">当页面发起网络请求时，记录将在此显示</div>
+        </div>
+    </div>
+</div>

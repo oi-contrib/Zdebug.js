@@ -1,4 +1,4 @@
-import { defineElement } from "zipaper";
+import { defineElement, ref } from "zipaper";
 import template from "./index.html";
 import style from "./index.scss";
 import loadStyle from "../tools/loadStyle";
@@ -9,11 +9,13 @@ export default defineElement({
     template,
     data() {
         return {
-            // 由于只有一个控制台标签，不需要activeTab属性
+            activeTab: ref("console")
         }
     },
     methods: {
-        // 由于只有一个控制台标签，不需要切换标签的功能
+        changeTab(tabName) {
+            this.activeTab = tabName;
+        }
     },
     created() {
         setTimeout(() => {
@@ -61,9 +63,6 @@ export default defineElement({
             closeEl.addEventListener("click", function () {
                 toggleView(false);
             });
-
-            // 由于只有一个控制台标签，不需要绑定标签切换事件
-
         });
     }
 })

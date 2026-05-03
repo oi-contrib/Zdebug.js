@@ -42,18 +42,9 @@ Zdebug()
 Zdebug()
 ```
 
-<table>
-    <!-- <thead>
-        <tr>
-            <td>Console</td>
-        </tr>
-    </thead> -->
-    <tbody>
-        <tr>
-            <td><img src="./snipping/console.png" /></td>
-        </tr>
-    </tbody>
-</table>
+|  Console   | Network  |
+|  ----  | ----  |
+| <img width="200px" src="./snipping/console.png" />  | <img width="200px" src="./snipping/network.png" /> |
 
 ### 配置项
 
