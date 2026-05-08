@@ -63,6 +63,7 @@ export default defineElement({
             closeEl.addEventListener("click", function () {
                 toggleView(false);
             });
+
         });
     }
 })

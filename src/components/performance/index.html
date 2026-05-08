@@ -1,0 +1,50 @@
+<div class="performance-container">
+    <div class="performance-header">
+        <div class="performance-title">性能监控</div>
+        <div class="performance-actions">
+            <button class="performance-btn" id="clear-performance" title="清空性能记录">
+                清空
+            </button>
+            <button class="performance-btn" id="filter-performance" title="切换筛选面板">
+                切换
+            </button>
+        </div>
+    </div>
+    <div class="performance-filter-bar" id="performance-filter-bar" style="display: none;">
+        <div class="filter-section">
+            <div class="filter-title">筛选性能类型:</div>
+            <label class="filter-option">
+                <input type="checkbox" checked value="navigation"> 导航
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="resource"> 资源
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="paint"> 绘制
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="user-timing"> 用户计时
+            </label>
+            <label class="filter-option">
+                <input type="checkbox" checked value="js-execution"> JS执行
+            </label>
+        </div>
+        
+        <div class="delete-section">
+            <div class="filter-title">操作:</div>
+            <button class="delete-btn" id="performance-delete-selected-types" title="删除选中类型的性能记录">
+                删除选中类型
+            </button>
+            <button class="delete-btn" id="performance-delete-all-logs" title="清空所有性能记录">
+                清空全部
+            </button>
+        </div>
+    </div>
+    <div id='performance-container'>
+        <div class='blank'>
+            <div class="empty-icon">📊</div>
+            <div class="empty-text">暂无性能监控数据</div>
+            <div class="empty-tip">页面加载完成后将自动收集性能数据</div>
+        </div>
+    </div>
+</div>

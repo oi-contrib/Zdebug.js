@@ -29,7 +29,7 @@ export default defineElement({
             const consoleEl = iframeDoc.getElementById("console");
             if (!consoleEl) return;
             
-            const checkboxes = iframeDoc.querySelectorAll('#filter-bar input[type="checkbox"]');
+            const checkboxes = iframeDoc.querySelectorAll('#console-filter-bar input[type="checkbox"]');
             const selectedTypes = [];
             
             checkboxes.forEach(checkbox => {
@@ -69,7 +69,7 @@ export default defineElement({
         // 切换过滤栏显示
         toggleFilterBar() {
             const iframeDoc = window.zdebugiframeDocument || document;
-            const filterBar = iframeDoc.getElementById("filter-bar");
+            const filterBar = iframeDoc.getElementById("console-filter-bar");
             if (filterBar) {
                 filterBar.style.display = filterBar.style.display === 'none' ? 'flex' : 'none';
             }
@@ -81,7 +81,7 @@ export default defineElement({
             const consoleEl = iframeDoc.getElementById("console");
             if (!consoleEl) return;
             
-            const checkboxes = iframeDoc.querySelectorAll('#filter-bar input[type="checkbox"]');
+            const checkboxes = iframeDoc.querySelectorAll('#console-filter-bar input[type="checkbox"]');
             const enabledTypes = [];
             
             checkboxes.forEach(checkbox => {
@@ -171,7 +171,7 @@ export default defineElement({
             const clearBtn = iframeDoc.getElementById("clear-console");
             const filterBtn = iframeDoc.getElementById("filter-console");
             const runBtn = iframeDoc.getElementById("run-code");
-            const toggleFilterBtn = iframeDoc.getElementById("toggle-filter-bar");
+            const toggleFilterBtn = iframeDoc.getElementById("toggle-console-filter-bar");
             
             if (clearBtn) {
                 clearBtn.addEventListener('click', this.clearConsole.bind(this));
@@ -190,14 +190,14 @@ export default defineElement({
             }
             
             // 绑定过滤选项事件
-            const filterCheckboxes = iframeDoc.querySelectorAll('#filter-bar input[type="checkbox"]');
+            const filterCheckboxes = iframeDoc.querySelectorAll('#console-filter-bar input[type="checkbox"]');
             filterCheckboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', this.applyLogFilter.bind(this));
             });
             
             // 绑定删除按钮事件
-            const deleteSelectedBtn = iframeDoc.getElementById("delete-selected-types");
-            const deleteAllBtn = iframeDoc.getElementById("delete-all-logs");
+            const deleteSelectedBtn = iframeDoc.getElementById("console-delete-selected-types");
+            const deleteAllBtn = iframeDoc.getElementById("console-delete-all-logs");
             
             if (deleteSelectedBtn) {
                 deleteSelectedBtn.addEventListener('click', this.deleteSelectedLogTypes.bind(this));
@@ -215,4 +215,4 @@ export default defineElement({
             this.setupCodeInputEvents();
         });
     }
-})
+});

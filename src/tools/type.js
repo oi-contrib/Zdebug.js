@@ -1,12 +1,12 @@
-var _toString = Object.prototype.toString;
-var getType = function (value) {
+let _toString = Object.prototype.toString;
+let getType = function (value) {
     if (value == null) {
         return value === undefined ? '[object Undefined]' : '[object Null]';
     }
     return _toString.call(value);
 };
 
-export var isPlainObject = function (value) {
+export let isPlainObject = function (value) {
     if (value === null || typeof value !== 'object' || getType(value) != '[object Object]') {
         return false;
     }
@@ -16,46 +16,46 @@ export var isPlainObject = function (value) {
         return true;
     }
 
-    var proto = value;
+    let proto = value;
     while (Object.getPrototypeOf(proto) !== null) {
         proto = Object.getPrototypeOf(proto);
     }
     return Object.getPrototypeOf(value) === proto;
 };
 
-export var isString = function (value) {
-    var type = typeof value;
+export let isString = function (value) {
+    let type = typeof value;
     return type === 'string' || (type === 'object' && value != null && !Array.isArray(value) && getType(value) === '[object String]');
 };
 
-export var isObject = function (value) {
-    var type = typeof value;
+export let isObject = function (value) {
+    let type = typeof value;
     return value != null && (type === 'object' || type === 'function');
 };
 
-export var isFunction = function (value) {
+export let isFunction = function (value) {
     if (!isObject(value)) {
         return false;
     }
 
-    var type = getType(value);
+    let type = getType(value);
     return type === '[object Function]' || type === '[object AsyncFunction]' ||
         type === '[object GeneratorFunction]' || type === '[object Proxy]';
 };
 
-export var isNumber = function (value) {
+export let isNumber = function (value) {
     return typeof value === 'number' || (
         value !== null && typeof value === 'object' &&
         getType(value) === '[object Number]'
     );
 };
 
-export var isBoolean = function (value) {
+export let isBoolean = function (value) {
     return value === true || value === false ||
         (value !== null && typeof value === 'object' && getType(value) === '[object Boolean]');
 };
 
-export var toString = function (val) {
+export let toString = function (val) {
     // 处理基本类型
     if (val === null) return 'null';
     if (val === undefined) return 'undefined';
@@ -68,8 +68,8 @@ export var toString = function (val) {
     if (Array.isArray(val)) {
         if (val.length === 0) return '[]';
         
-        var resultData = "[";
-        for (var i = 0; i < Math.min(val.length, 10); i++) { // 限制数组长度，避免过长
+        let resultData = "[";
+        for (let i = 0; i < Math.min(val.length, 10); i++) { // 限制数组长度，避免过长
             if (i > 0) resultData += ', ';
             if (typeof val[i] === 'string') {
                 resultData += '"' + val[i] + '"';
@@ -85,12 +85,12 @@ export var toString = function (val) {
 
     // 处理对象
     if (isPlainObject(val)) {
-        var keys = Object.keys(val);
+        let keys = Object.keys(val);
         if (keys.length === 0) return '{}';
         
-        var resultData = "{";
-        var count = 0;
-        for (var key in val) {
+        let resultData = "{";
+        let count = 0;
+        for (let key in val) {
             if (count >= 5) { // 限制属性数量，避免过长
                 resultData += ', ...'; // 表示还有更多属性
                 break;
@@ -98,7 +98,7 @@ export var toString = function (val) {
             if (count > 0) resultData += ', ';
             resultData += key + ": ";
             
-            var value = val[key];
+            let value = val[key];
             if (typeof value === 'string') {
                 resultData += '"' + value + '"';
             } else if (typeof value === 'object' && value !== null) {

@@ -8,6 +8,9 @@
     <a href="https://www.npmjs.com/package/zdebug.js">
         <img src="https://img.shields.io/npm/v/zdebug.js.svg" alt="Version">
     </a>
+     <a href="https://www.jsdelivr.com/package/npm/zdebug.js">
+        <img src="https://data.jsdelivr.com/v1/package/npm/zdebug.js/badge" alt="Version">
+    </a>
     <a href="https://github.com/zxl20070701/Zdebug.js" target='_blank'>
         <img alt="GitHub repo stars" src="https://img.shields.io/github/stars/zxl20070701/Zdebug.js?style=social">
     </a>
@@ -42,9 +45,9 @@ Zdebug()
 Zdebug()
 ```
 
-|  Console   | Network  |  Memory   |
-|  ----  | ----  |  ----  |
-| <img width="200px" src="./snipping/console.png" />  | <img width="200px" src="./snipping/network.png" /> | <img width="200px" src="./snipping/memory.png" />  |
+|  Console   | Network  |  Memory   | Performance  |
+|  ----  | ----  |  ----  | ----  |
+| <img width="200px" src="./snipping/console.png" />  | <img width="200px" src="./snipping/network.png" /> | <img width="200px" src="./snipping/memory.png" />  | <img width="200px" src="./snipping/performance.png" /> |
 
 ### 配置项
 

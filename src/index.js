@@ -1,19 +1,19 @@
 import commonStyle from './common.scss';
-import bootstrap from './bootstrap.js'
+import bootstrap from './bootstrap.js';
 
 
 export default function (options) {
-    var _options = {
+    let _options = {
         zIndex: 9999999
     };
 
     if (options) {
-        for (var key in options) {
+        for (let key in options) {
             _options[key] = options[key];
         }
     }
 
-    var iframe = document.createElement("iframe");
+    let iframe = document.createElement("iframe");
     iframe.style.cssText =
         "display: block;" +
         "position: fixed;" +
@@ -23,14 +23,14 @@ export default function (options) {
         "box-sizing: content-box;";
     document.documentElement.appendChild(iframe);
 
-    var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+    let iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
 
     // ifrmae中写入html模板
     iframeDocument.open();
     iframeDocument.write("<div id='root'></div>");
     iframeDocument.close();
 
-    var styleEl = document.createElement("style");
+    let styleEl = document.createElement("style");
     iframeDocument.documentElement.getElementsByTagName("head")[0].appendChild(styleEl);
     styleEl.innerText = commonStyle;
 

@@ -1,6 +1,6 @@
 {
   "name": "zdebug.js",
-  "version": "0.5.0-alpha.0",
+  "version": "0.5.0",
   "description": "移动端调试工具，支持typescript开发",
   "main": "dist/Zdebug.min.js",
   "typings": "./types/index.d.ts",
