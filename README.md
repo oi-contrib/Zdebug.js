@@ -45,9 +45,9 @@ Zdebug()
 Zdebug()
 ```
 
-|  Console   | Network  |  Memory   | Performance  |
-|  ----  | ----  |  ----  | ----  |
-| <img width="200px" src="./snipping/console.png" />  | <img width="200px" src="./snipping/network.png" /> | <img width="200px" src="./snipping/memory.png" />  | <img width="200px" src="./snipping/performance.png" /> |
+|  Console   | Network  |
+|  ----  | ----  |
+| <img width="200px" src="./snipping/console.png" />  | <img width="200px" src="./snipping/network.png" /> |
 
 ### 配置项
 

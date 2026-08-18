@@ -149,6 +149,14 @@ export default function (iframeDocument) {
         var liEl = document.createElement('li');
         liEl.className = typeClasses[item.type];
 
+        // 遵循当前过滤栏 checkbox 状态，避免新增的日志绕过筛选
+        var filterCheckbox = iframeDocument.querySelector(
+            '#console-filter-bar input[type="checkbox"][value="' + item.type + '"]'
+        );
+        if (filterCheckbox && !filterCheckbox.checked) {
+            liEl.style.display = 'none';
+        }
+
         consoleEl.appendChild(liEl);
 
         // 添加时间戳

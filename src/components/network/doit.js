@@ -76,6 +76,12 @@ export default function (iframeDocument) {
         headerEl.className = 'network-item-header';
         recordEl.appendChild(headerEl);
 
+        // 展开/收起图标（放在最前面）
+        let toggleIcon = document.createElement('span');
+        toggleIcon.className = 'toggle-icon';
+        toggleIcon.textContent = '▶';
+        headerEl.appendChild(toggleIcon);
+
         // 时间戳
         let timestampEl = document.createElement('span');
         timestampEl.className = 'network-timestamp';
@@ -89,39 +95,19 @@ export default function (iframeDocument) {
         methodEl.style.color = getMethodColor(record.method);
         headerEl.appendChild(methodEl);
 
-        // 状态码
+        // 状态码（用颜色直接区分成功/失败）
         let statusEl = document.createElement('span');
         statusEl.className = 'network-status';
         statusEl.textContent = record.status;
         statusEl.style.color = getStatusColor(record.status);
         headerEl.appendChild(statusEl);
 
-        // URL
+        // URL（header 最后一项，单独一行展示完整地址）
         let urlEl = document.createElement('span');
         urlEl.className = 'network-url';
         urlEl.textContent = record.url;
         urlEl.title = record.url;
         headerEl.appendChild(urlEl);
-
-        // 响应时间
-        let durationEl = document.createElement('span');
-        durationEl.className = 'network-duration';
-        durationEl.textContent = record.duration + 'ms';
-        headerEl.appendChild(durationEl);
-
-        // 响应大小
-        if (record.size) {
-            let sizeEl = document.createElement('span');
-            sizeEl.className = 'network-size';
-            sizeEl.textContent = formatBytes(record.size);
-            headerEl.appendChild(sizeEl);
-        }
-
-        // 展开/收起图标
-        let toggleIcon = document.createElement('span');
-        toggleIcon.className = 'toggle-icon';
-        toggleIcon.textContent = '▶';
-        headerEl.appendChild(toggleIcon);
 
         // 详细信息
         let detailsEl = document.createElement('div');

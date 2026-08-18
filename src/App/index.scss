@@ -43,6 +43,7 @@
     .content {
         height: calc(80vh - 64px);
         overflow: auto;
+        overscroll-behavior: contain;
         font-size: 12px;
         font-weight: 200;
         background-color: white;

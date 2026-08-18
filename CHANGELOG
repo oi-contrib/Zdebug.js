@@ -36,3 +36,13 @@ v0.5.0:
           * Fetch 请求
         2、内存监控Memory
         3、性能监控Performance
+v0.6.0:
+    date:2026-08-18
+    changes:
+      - 废弃功能
+        1、network的filter功能
+        2、Memory监控
+        3、Performance监控
+      - 优化改造
+        1、支持拖拽按钮位置
+        2、滚动时不影响主页面滚动
